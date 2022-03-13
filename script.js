@@ -11,7 +11,7 @@ const DomElement = function(selector, height, width, bg, fontSize) {
             let elem = document.createElement('div');
             let str = this.selector.slice(1);
             elem.classList.add(str);
-            elem.innerHTML = "<h1>Привет!</h1>";
+            elem.innerHTML = "Привет!";
             elem.style.cssText = 'height: ' + this.height + 'px;' + 
                                 'width: ' + this.width + 'px;' +
                                 'background: ' + this.bg + ';' +
@@ -21,7 +21,7 @@ const DomElement = function(selector, height, width, bg, fontSize) {
             let elem = document.createElement('p');
             let str = this.selector.slice(1);
             elem.setAttribute('id', str);
-            elem.innerText = "Привет!";
+            elem.innerHTML = "Привет!";
             elem.style.cssText = 'height: ' + this.height + 'px;' + 
                                 'width: ' + this.width + 'px;' +
                                 'background: ' + this.bg + ';' +
@@ -31,5 +31,5 @@ const DomElement = function(selector, height, width, bg, fontSize) {
     }     
 };
 
-const newElem = new DomElement('.block', 400, 700, 'green', 40);
+const newElem = new DomElement('.block', 200, 700, 'green', 50);
 newElem.func();
