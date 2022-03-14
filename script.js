@@ -7,18 +7,17 @@ const DomElement = function(selector, height, width, bg, fontSize) {
     this.bg = bg;
     this.fontSize = fontSize;
     let elem;
-    let str;
+    let str = this.selector.slice(1);;
     this.func = function() {
         if(this.selector[0] == '.') {
             elem = document.createElement('div');
-            str = this.selector.slice(1);
             elem.classList.add(str);
             
         } else if(this.selector[0] == '#') {
             elem = document.createElement('p');
-            str = this.selector.slice(1);
             elem.setAttribute('id', str);
         } else alert('Вы ввели не тот элемент');
+         
         elem.innerHTML = "Привет!";
         elem.style.cssText = 'height: ' + this.height + 'px;' + 
                                 'width: ' + this.width + 'px;' +
@@ -29,5 +28,5 @@ const DomElement = function(selector, height, width, bg, fontSize) {
     
 };
 
-const newElem = new DomElement('#block', 200, 700, 'red', 80);
+const newElem = new DomElement('.block', 200, 700, 'blue', 80);
 newElem.func();
