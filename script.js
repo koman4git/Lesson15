@@ -6,30 +6,28 @@ const DomElement = function(selector, height, width, bg, fontSize) {
     this.width = width;
     this.bg = bg;
     this.fontSize = fontSize;
+    let elem;
+    let str;
     this.func = function() {
         if(this.selector[0] == '.') {
-            let elem = document.createElement('div');
-            let str = this.selector.slice(1);
+            elem = document.createElement('div');
+            str = this.selector.slice(1);
             elem.classList.add(str);
-            elem.innerHTML = "Привет!";
-            elem.style.cssText = 'height: ' + this.height + 'px;' + 
-                                'width: ' + this.width + 'px;' +
-                                'background: ' + this.bg + ';' +
-                                'font-size: ' + this.fontSize + 'px;';
-            document.body.appendChild(elem);
+            
         } else if(this.selector[0] == '#') {
-            let elem = document.createElement('p');
-            let str = this.selector.slice(1);
+            elem = document.createElement('p');
+            str = this.selector.slice(1);
             elem.setAttribute('id', str);
-            elem.innerHTML = "Привет!";
-            elem.style.cssText = 'height: ' + this.height + 'px;' + 
+        } else alert('Вы ввели не тот элемент');
+        elem.innerHTML = "Привет!";
+        elem.style.cssText = 'height: ' + this.height + 'px;' + 
                                 'width: ' + this.width + 'px;' +
                                 'background: ' + this.bg + ';' +
                                 'font-size: ' + this.fontSize + 'px;';
-            document.body.appendChild(elem);
-        } else alert('Вы ввели не тот элемент');
-    }     
+        document.body.appendChild(elem); 
+    }    
+    
 };
 
-const newElem = new DomElement('.block', 200, 700, 'green', 50);
+const newElem = new DomElement('#block', 200, 700, 'red', 80);
 newElem.func();
